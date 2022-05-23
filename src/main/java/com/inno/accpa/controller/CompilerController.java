@@ -4,6 +4,7 @@ import com.inno.accpa.compiler.Main;
 import com.inno.accpa.dto.ProgramDto;
 import com.inno.accpa.dto.ResultDto;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +19,7 @@ public class CompilerController {
     final String DEFAULT_PATH = "code/";
     final String LIBRARY_PATH = "standard_library/";
 
-    @GetMapping("/compile")
+    @PostMapping("/compile")
     public ResultDto compileProgram(@RequestBody ProgramDto programDto) {
         try {
             for (var tab : programDto.getTabs()) {
