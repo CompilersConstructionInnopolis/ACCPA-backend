@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.File;
 import java.io.PrintWriter;
 
 @RestController
@@ -24,8 +25,17 @@ public class CompilerController {
                 printWriter.println(tab.getContent());
                 printWriter.close();
             }
-            return new ResultDto(main.main(programDto.getLog()), null);
+            var result = main.main(programDto.getLog());
+//            for (var tab : programDto.getTabs()) {
+//                File myObj = new File(PATH + tab.getTitle());
+//                myObj.delete();
+//            }
+            return new ResultDto(result, null);
         } catch (Exception e) {
+//            for (var tab : programDto.getTabs()) {
+//                File myObj = new File(PATH + tab.getTitle());
+//                myObj.delete();
+//            }
             return new ResultDto(null, e.getMessage());
         }
     }
