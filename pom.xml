@@ -15,6 +15,8 @@
     <name>accpa-backend</name>
     <description>accpa-backend</description>
     <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <java.version>11</java.version>
         <spring-boot.version>2.3.9.RELEASE</spring-boot.version>
     </properties>
@@ -85,9 +87,7 @@
                         <configuration>
                             <outputDirectory>src/main/java/com/inno/accpa/compiler</outputDirectory>
                             <lexDefinitions>
-                                <lexDefinition>src/main/jflex</lexDefinition>
-                                <lexDefinition>src/main/lex/preprocessor.jflex</lexDefinition>
-                                <lexDefinition>/pub/postprocessor.jflex</lexDefinition>
+                                <lexDefinition>src/main/java/com/inno/accpa/compiler/lexical_analysis</lexDefinition>
                             </lexDefinitions>
                         </configuration>
                     </execution>
