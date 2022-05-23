@@ -1,0 +1,1 @@
+(func easyFunc (x) (minus x x))
