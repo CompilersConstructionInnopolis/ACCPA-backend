@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class Main {
     public String main(Boolean log) throws IOException {
-        final String DEFAULT_PATH = "src/main/java/com/inno/accpa/compiler/code/main.txt";
+        final String DEFAULT_PATH = "code/main.txt";
 //        final boolean LOG_DEFAULT = true;
 //        final String LOG_PARAMETER_NAME = "log";
 //        final String programSourcePath = args.length >= 1 ? args[0] : DEFAULT_PATH;

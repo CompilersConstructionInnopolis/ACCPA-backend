@@ -14,13 +14,13 @@ public class CompilerController {
 
     private Main main = new Main();
 
-    public static String PATH = "src/main/java/com/inno/accpa/compiler/code/";
+    public static String PATH = "code/";
 
     @GetMapping("/compile")
     public ResultDto compileProgram(@RequestBody ProgramDto programDto) {
         try {
             for (var tab : programDto.getTabs()) {
-                var printWriter = new PrintWriter(tab.getTitle(), "UTF-8");
+                var printWriter = new PrintWriter(PATH + tab.getTitle(), "UTF-8");
                 printWriter.println(tab.getContent());
                 printWriter.close();
             }

@@ -9,11 +9,11 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.example</groupId>
-    <artifactId>check_1</artifactId>
+    <groupId>com.inno.accpa</groupId>
+    <artifactId>accpa-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>check_1</name>
-    <description>check_1</description>
+    <name>accpa-backend</name>
+    <description>accpa-backend</description>
     <properties>
         <java.version>11</java.version>
         <spring-boot.version>2.3.9.RELEASE</spring-boot.version>
@@ -83,7 +83,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>src/main/java</outputDirectory>
+                            <outputDirectory>src/main/java/com/inno/accpa/compiler</outputDirectory>
                             <lexDefinitions>
                                 <lexDefinition>src/main/jflex</lexDefinition>
                                 <lexDefinition>src/main/lex/preprocessor.jflex</lexDefinition>
