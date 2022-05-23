@@ -23,21 +23,23 @@ public class CompilerController {
     public ResultDto compileProgram(@RequestBody ProgramDto programDto) {
         try {
             for (var tab : programDto.getTabs()) {
-                if (tab.getTitle().equals("main.txt")){
-                    var printWriter = new PrintWriter(DEFAULT_PATH + tab.getTitle(), "UTF-8");
+                if (tab.getTitle().equals("main")){
+                    var printWriter = new PrintWriter(DEFAULT_PATH + tab.getTitle().concat(".txt"), "UTF-8");
                     printWriter.println(tab.getContent());
                     printWriter.close();
                 } else {
-                    var printWriter = new PrintWriter(LIBRARY_PATH + tab.getTitle(), "UTF-8");
+                    var printWriter = new PrintWriter(LIBRARY_PATH + tab.getTitle().concat(".txt"), "UTF-8");
                     printWriter.println(tab.getContent());
                     printWriter.close();
                 }
             }
             var result = main.main(programDto.getLog());
-//            for (var tab : programDto.getTabs()) {
-//                File myObj = new File(PATH + tab.getTitle());
-//                myObj.delete();
-//            }
+            for (var tab : programDto.getTabs()) {
+                if (tab.getTitle().equals("main")) {
+                    File myObj = new File(DEFAULT_PATH + tab.getTitle().concat(".txt"));
+                    myObj.delete();
+                }
+            }
             return new ResultDto(result, null);
         } catch (Exception e) {
 //            for (var tab : programDto.getTabs()) {

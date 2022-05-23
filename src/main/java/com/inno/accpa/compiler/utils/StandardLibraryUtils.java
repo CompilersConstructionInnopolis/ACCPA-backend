@@ -86,9 +86,8 @@ public class StandardLibraryUtils {
         try {
             return Files.readAllLines(filePath, charset);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException("File is not found");
         }
-        return null;
     }
 
     public static boolean isCommentedLine(String line) {
