@@ -14,15 +14,22 @@ public class CompilerController {
 
     private Main main = new Main();
 
-    public static String PATH = "code/";
+    final String DEFAULT_PATH = "code/";
+    final String LIBRARY_PATH = "standard_library/";
 
     @GetMapping("/compile")
     public ResultDto compileProgram(@RequestBody ProgramDto programDto) {
         try {
             for (var tab : programDto.getTabs()) {
-                var printWriter = new PrintWriter(PATH + tab.getTitle(), "UTF-8");
-                printWriter.println(tab.getContent());
-                printWriter.close();
+                if (tab.getTitle().equals("main.txt")){
+                    var printWriter = new PrintWriter(DEFAULT_PATH + tab.getTitle(), "UTF-8");
+                    printWriter.println(tab.getContent());
+                    printWriter.close();
+                } else {
+                    var printWriter = new PrintWriter(LIBRARY_PATH + tab.getTitle(), "UTF-8");
+                    printWriter.println(tab.getContent());
+                    printWriter.close();
+                }
             }
             return new ResultDto(main.main(programDto.getLog()), null);
         } catch (Exception e) {
